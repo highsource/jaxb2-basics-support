@@ -1,0 +1,23 @@
+<jaxb:bindings
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:simplify="http://jaxb2-commons.dev.java.net/basic/simplify"
+	jaxb:extensionBindingPrefixes="simplify"
+	jaxb:version="2.1">
+
+	<jaxb:globalBindings choiceContentProperty="true" generateIsSetMethod="true">
+		<!--xjc:noValidator />
+		<xjc:noValidatingUnmarshaller /-->
+	</jaxb:globalBindings>
+
+	<jaxb:bindings schemaLocation="schema.xsd" node="/xsd:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.jvnet.jaxb2_commons.tests.one"/>
+		</jaxb:schemaBindings>
+		<jaxb:bindings node="xsd:complexType[@name='choiceType']">
+			<simplify:property name="xAndZOrY">
+				<simplify:as-element-property/>
+			</simplify:property>
+		</jaxb:bindings>
+	</jaxb:bindings>
+</jaxb:bindings>
